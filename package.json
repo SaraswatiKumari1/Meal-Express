@@ -1,0 +1,32 @@
+{
+  "name": "meal-express",
+  "version": "1.0.0",
+  "description": "Food Ordeing App",
+  "keywords": [
+    "Meal",
+    "Express"
+  ],
+  "homepage": "https://github.com/SaraswatiKumari1/Meal-Express#readme",
+  "bugs": {
+    "url": "https://github.com/SaraswatiKumari1/Meal-Express/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SaraswatiKumari1/Meal-Express.git"
+  },
+  "license": "ISC",
+  "author": "Saraswati Kumari",
+  "type": "commonjs",
+  "scripts": {
+    "test": "jest",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "devDependencies": {
+    "parcel": "^2.16.4"
+  },
+  "dependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  }
+}
