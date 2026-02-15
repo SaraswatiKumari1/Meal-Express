@@ -57,9 +57,16 @@
     width: 100%;
 }
 
+.filter{
+    padding: 10px;
+    align-items: center;
+    display: flex;
+}
+
 .filter-btn{
     margin: 10px;
     cursor: pointer;
+    align-items: center;
 }
 
 .shimmer-container{
@@ -82,3 +89,8 @@
     font-size: 18px;
     cursor: pointer;
 }
+
+.search-btn{
+    cursor: pointer;
+}
+
