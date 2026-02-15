@@ -1,10 +1,10 @@
-import resList from "../utils/mockData";
 import RestaurantCard from "./RestaurantCard";
 import {useState, useEffect} from "react";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
 
-    const arr = useState(resList);
+    const arr = useState([]);
     const listOfRestaurant = arr[0];
     const setFilteredResList = arr[1];
   //const [listOfRestaurant, setFilteredResList] = useState(resList);
@@ -17,11 +17,15 @@ const Body = () => {
         const json = await data.json();
         //console.log("data: ", json);
         //console.log("Restaurants list->",json?.data?.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+        //Optional Chaining
         setFilteredResList(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         //console.log("json: ", json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        console.log("listOfRestaurant: ", listOfRestaurant);
+        //console.log("listOfRestaurant: ", listOfRestaurant);
     };
 
+    if(listOfRestaurant.length === 0) {
+        return <Shimmer />;
+    }
   return (
     <div className="body">
       <div className="filter">
