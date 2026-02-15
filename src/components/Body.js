@@ -23,10 +23,13 @@ const Body = () => {
         //console.log("listOfRestaurant: ", listOfRestaurant);
     };
 
-    if(listOfRestaurant.length === 0) {
-        return <Shimmer />;
-    }
-  return (
+
+    //Conditional Rendering
+    // if(listOfRestaurant.length === 0) {
+    //     return <Shimmer />;
+    // }
+    
+  return listOfRestaurant.length === 0 ? <Shimmer /> : (
     <div className="body">
       <div className="filter">
         <button className="filter-btn" onClick={() => {
