@@ -1,21 +1,23 @@
+import { CDN_URL } from "../utils/constants";
+
 const RestaurantCard = (props) => {
   const {resData} = props;
-  const { name, cuisine, rating, image, costText} = resData?.info;
-  console.log("name: ", name);
-  console.log("cuisine: ", cuisine);
-  console.log("rating: ", rating?.aggregate_rating);
-  console.log("costText: ", costText?.text);
-  console.log("image: ", image);
-  console.log("resData: ", resData?.distance);
+  const { name, cuisines, avgRating, cloudinaryImageId, costForTwo, sla} = resData?.info;
+  //console.log("name: ", name);
+  //console.log("cuisines: ", cuisines);
+  //console.log("rating: ", avgRating);
+  //console.log("costText: ", costForTwo);
+  //console.log("image: ", cloudinaryImageId);
+  //console.log("resData: ", resData?.distance);
   return (
     <div className="restaurant-card">
-      <img className="restaurant-card-image" src={image?.url} alt="restaurant-card-image" />
+      <img className="restaurant-card-image" src={CDN_URL+cloudinaryImageId} alt="restaurant-card-image" />
       <div className="restaurant-info">
         <h3>{name}</h3>    
-        <h4>{cuisine.map((c) => c.name).join(", ")}</h4>
-        <h4>{rating?.aggregate_rating}</h4>
-        <h4>{costText?.text}</h4>
-        <h4>{resData?.distance}</h4>
+        <h4>{cuisines.join(", ")}</h4>
+        <h4>{avgRating}</h4>
+        <h4>{costForTwo}</h4>
+        <h4>{sla?.slaString}</h4>
       </div>
     </div>
   );
