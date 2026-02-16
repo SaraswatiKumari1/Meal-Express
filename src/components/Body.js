@@ -1,6 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router";
 
 const Body = () => {
   const arr = useState([]);
@@ -55,15 +56,20 @@ const Body = () => {
               setSearchText(e.target.value);
             }}
           />
-          <button className="search-btn" onClick={() => {
-            //Filter the restaurant cards and update the UI
-            //Data from input box is needed
-            const filteredList = listOfRestaurant.filter((res) =>
-              res.info.name.toLowerCase().includes(searchText.toLowerCase()),
-            );
-            setFilteredResList(filteredList);
-            console.log("searchText: ", searchText);
-          }}>Search</button>
+          <button
+            className="search-btn"
+            onClick={() => {
+              //Filter the restaurant cards and update the UI
+              //Data from input box is needed
+              const filteredList = listOfRestaurant.filter((res) =>
+                res.info.name.toLowerCase().includes(searchText.toLowerCase()),
+              );
+              setFilteredResList(filteredList);
+              console.log("searchText: ", searchText);
+            }}
+          >
+            Search
+          </button>
         </div>
         <button
           className="filter-btn"
@@ -81,7 +87,12 @@ const Body = () => {
         {/*{console.log(listOfRestaurant)} */}
         {filteredResList.map((restaurant) => {
           return (
-            <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+            <Link
+              key={restaurant.info.id}
+              to={"/restaurants/" + restaurant.info.id}
+            >
+              <RestaurantCard resData={restaurant} />
+            </Link>
           );
         })}
       </div>
